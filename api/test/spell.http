@@ -1,7 +1,7 @@
-### Get by name test
+### Get by query test
 POST http://localhost:3000/api/ HTTP/1.1
 Content-Type: application/json
 
-{ "_id": "r8g7oSumKOHDqJsd" }
-###
+{ "query": "ac sp r:1" }
+### Get all test
 GET http://localhost:3000/api
