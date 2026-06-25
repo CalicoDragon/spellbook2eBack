@@ -24,6 +24,16 @@ const expressionMapper = (field, subquery) => {
     case "!r":
       return { "system.level.value": { $not: { $eq: parseInt(subquery) } } };
 
+    case ">rank":
+    case ">lvl":
+    case ">r":
+      return { "system.level.value": {$gt: parseInt(subquery)} };
+
+    case "<rank":
+    case "<lvl":
+    case "<r":
+      return { "system.level.value": {$lt: parseInt(subquery)} };
+
     case "trait":
     case "tr":
     case "t":
@@ -66,7 +76,7 @@ const expressionMapper = (field, subquery) => {
 const buildQuery = (query) => {
   // Using regex to separate the query in arrays but keeping inside quotes unsplit
   let queryArray = query.match(
-    /\w+:\w+|\!\w+:\w+|\w+?:"[\w\s]*"|\!\w+?:"[\w\s]*"|\w+/g,
+    /\w+:\w+|\!\w+:\w+|<\w+:\w+|>\w+:\w+|\w+?:"[\w\s]*"|\!\w+?:"[\w\s]*"|\w+/g,
   );
 
   queryArray.forEach((element, i) => {
