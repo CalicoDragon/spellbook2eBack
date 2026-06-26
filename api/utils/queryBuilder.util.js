@@ -73,6 +73,18 @@ const expressionMapper = (field, subquery) => {
     case "!range":
       return { "system.range.value": { $not:{ $eq: subquery } } };
 
+    case "duration":
+      return { "system.duration.value": subquery };
+
+    case "!duration":
+      return { "system.duration.value": { $not:{ $eq: subquery } } };
+
+    case "target":
+      return { "system.target.value": subquery };
+
+    case "!target":
+      return { "system.target.value": { $not:{ $eq: subquery } } };
+
     default:
       console.log("expressionMapper hit default");
       break;
