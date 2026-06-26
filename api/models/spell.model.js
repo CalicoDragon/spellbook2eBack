@@ -2,140 +2,62 @@
 const mongoose = require("mongoose");
 
 const SpellScheme = new mongoose.Schema({
-  _id: {
-    type: "String",
-  },
-  folder: {
-    type: "String",
-  },
-  img: {
-    type: "String",
-  },
-  name: {
-    type: "String",
-  },
+  _id:  String,
+ 
+  folder: String,
+  img:  String,
+  name:  String,
   system: {
-    area: {
-      type: "String",
-    },
+    area: {},
     cost: {
-      value: {
-        type: "String",
-      },
+      value: String,
     },
-    counteraction: {
-      type: "Boolean",
-    },
-    damage: {
-      0: {
-        applyMod: {
-          type: "Boolean",
-        },
-        category: {
-          type: "Mixed",
-        },
-        formula: {
-          type: "String",
-        },
-        kinds: {
-          type: ["String"],
-        },
-        materials: {
-          type: "Array",
-        },
-        type: {
-          type: "String",
-        },
-      },
-    },
+    counteraction: Boolean,
+    damage: {},
     defense: {
       save: {
-        basic: {
-          type: "Boolean",
-        },
-        statistic: {
-          type: "String",
-        },
+        basic: Boolean,
+        statistic: String,
       },
     },
     description: {
-      value: {
-        type: "String",
-      },
+      value: String,
     },
     duration: {
-      sustained: {
-        type: "Boolean",
-      },
-      value: {
-        type: "String",
-      },
+      sustained: Boolean,
+      value: String,
     },
     heightening: {
-      damage: {
-        0: {
-          type: "String",
-        },
-      },
-      interval: {
-        type: "Number",
-      },
-      type: {
-        type: "String",
-      },
+      damage: {},
+      interval: Number,
+      type: String,
     },
     level: {
-      value: {
-        type: "Number",
-      },
+      value: Number,
     },
     publication: {
-      license: {
-        type: "String",
-      },
-      remaster: {
-        type: "Boolean",
-      },
-      title: {
-        type: "String",
-      },
+      license: String,
+      remaster: Boolean,
+      title: String,
     },
     range: {
-      value: {
-        type: "String",
-      },
+      value: String,
     },
-    requirements: {
-      type: "String",
-    },
-    rules: {
-      type: "Array",
-    },
+    requirements: String,
+    rules: [{}],
     target: {
-      value: {
-        type: "String",
-      },
+      value: String,
     },
     time: {
-      value: {
-        type: "String",
-      },
+      value: String,
     },
     traits: {
-      rarity: {
-        type: "String",
-      },
-      traditions: {
-        type: ["String"],
-      },
-      value: {
-        type: ["String"],
-      },
+      rarity: String,
+      traditions: [String],
+      value: [String],
     },
   },
-  type: {
-    type: "String",
-  },
+  type: String,
 });
 
 // Export
