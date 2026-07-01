@@ -6,6 +6,10 @@ const expressionMapper = (field, subquery) => {
     case "name":
       return { name: new RegExp(subquery, "i") };
 
+    case "description":
+    case "desc":
+      return { "system.description.value": new RegExp(subquery, "i") };
+
     case "tradition":
     case "trad":
       return { "system.traits.traditions": subquery };
